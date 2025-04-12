@@ -1,0 +1,14 @@
+# Ignore secrets
+secrets.toml
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Notebooks or large files
+*.ipynb
+*.jpg
+*.png
+
+# Env files
+.env
