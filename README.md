@@ -32,7 +32,7 @@ OpenAI GPT (via LangChain ChatOpenAI)
 1. Clone the Repository
 bash
 
-git clone https://github.com/your-username/multi-agent-chatbot.git
+git clone 
 cd multi-agent-chatbot
 2. Create a Virtual Environment
 
