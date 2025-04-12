@@ -1,15 +1,15 @@
-# multi_agent_chatbot/app.py
-
 import streamlit as st
 from transformers import BlipProcessor, BlipForConditionalGeneration
 from PIL import Image
 import torch
+import os
 from langchain.chains import LLMChain
 from langchain.prompts import PromptTemplate
 from langchain.chat_models import ChatOpenAI
 
 # ---------- CONFIG ----------
-openai_api_key = ""
+# Set API key from Streamlit secrets
+os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
 
 # Load BLIP for image captioning
 processor = BlipProcessor.from_pretrained("Salesforce/blip-image-captioning-base")
@@ -24,7 +24,7 @@ def caption_image(image):
     return caption
 
 # Set up LangChain agents
-llm = ChatOpenAI(openai_api_key=openai_api_key, temperature=0)
+llm = ChatOpenAI(temperature=0)  # It automatically uses the env variable
 
 agent1_prompt = PromptTemplate.from_template(
     "You are a property inspection assistant. Given an image caption and user query, detect issues and suggest fixes.\n\nImage Caption: {caption}\nUser Text: {text}\nAnswer:"
