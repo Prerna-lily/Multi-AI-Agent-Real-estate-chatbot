@@ -1,6 +1,7 @@
-streamlit 
-transformers 
-torch 
-pillow 
-langchain 
+streamlit
+transformers
+torch
+pillow
 openai
+langchain
+langchain-community
